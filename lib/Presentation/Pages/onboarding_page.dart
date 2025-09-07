@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental/Presentation/Pages/car_list_screen.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -31,7 +32,7 @@ class OnboardingPage extends StatelessWidget {
                   SizedBox(
                     width: 320,
                     height: 54,
-                    child: ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(backgroundColor:Colors.white,foregroundColor: Colors.black),
+                    child: ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => CarListScreen()));},style: ElevatedButton.styleFrom(backgroundColor:Colors.white,foregroundColor: Colors.black),
                         child: Text("Let\'s Go")),
                   )
                 ],
