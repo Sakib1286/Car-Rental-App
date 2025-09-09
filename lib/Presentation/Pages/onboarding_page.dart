@@ -32,7 +32,11 @@ class OnboardingPage extends StatelessWidget {
                   SizedBox(
                     width: 320,
                     height: 54,
-                    child: ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => CarListScreen()));},style: ElevatedButton.styleFrom(backgroundColor:Colors.white,foregroundColor: Colors.black),
+                    child: ElevatedButton(onPressed: (){
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (context) => CarListScreen())
+                          , (route) => false);},
+                        style: ElevatedButton.styleFrom(backgroundColor:Colors.white,foregroundColor: Colors.black),
                         child: Text("Let\'s Go")),
                   )
                 ],
