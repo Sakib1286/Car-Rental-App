@@ -4,7 +4,7 @@ import 'package:latlong2/latlong.dart';
 
 import '../../data/Models/car.dart';
 
-class MapdetailsPage extends StatelessWidget {
+class MapdetailsPage extends StatelessWidget   {
   final Car car;
   const MapdetailsPage({super.key, required this.car});
 
