@@ -4,12 +4,10 @@ import '../../data/Models/car.dart';
 
 class GetCars{
 final CarRepository repository;
-
-
 GetCars(this.repository);
-Future<List<Car>> call() async{
 
+
+Future<List<Car>> call() async{
   return await repository.fetchCars();
 }
-
 }
