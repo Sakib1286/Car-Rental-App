@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rental/Presentation/Widgets/car_cart.dart';
+import 'package:rental/Presentation/bloc/car_bloc.dart';
+import 'package:rental/Presentation/bloc/car_state.dart';
 
 import '../../data/Models/car.dart';
 
 class CarListScreen extends StatelessWidget {
-   CarListScreen({super.key});
-final List<Car> cars=[
-Car(model: "Nissan GTR", distance: 1200, fuelCapacity: 55, pricePerHour: 100),
-  Car(model: "Nissan GTR", distance: 1200, fuelCapacity: 55, pricePerHour: 100),
-  Car(model: "Nissan GTR", distance: 1200, fuelCapacity: 55, pricePerHour: 100),
-];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,11 +17,25 @@ Car(model: "Nissan GTR", distance: 1200, fuelCapacity: 55, pricePerHour: 100),
         backgroundColor: Colors.white70,
 
       ),
-      body: ListView.builder(
-        itemCount: cars.length,
-          itemBuilder: (context,index){
-          return CarCart(car: cars[index]);
-          }),
+      body: BlocBuilder<CarBloc,CarState>(
+
+        builder: (context, state){
+          if(state is CarsLoading){
+            return Center(child: CircularProgressIndicator(),);
+      } else if(state is CarsLoaded) {
+      return ListView.builder(
+      itemCount: state.cars.length,
+      itemBuilder: (context, index){
+      return CarCart(car: state.cars[index]);
+      },
+      );
+      }
+      else if(state is CarsError) {
+      return Center(child: Text('error : ${state.message}'),);
+      }
+      return Container();
+      },
+      )
     );
   }
 }

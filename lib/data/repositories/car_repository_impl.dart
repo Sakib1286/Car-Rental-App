@@ -5,9 +5,9 @@ import '../Models/car.dart';
 
 class CarRepositoryImpl implements CarRepository{
 
-final firebaseCarDataSource dataSource;
+final FirebaseCarDataSource dataSource;
 
-CarRepositoryImpl({required this.dataSource});
+CarRepositoryImpl(this.dataSource);
 
   @override
   Future<List<Car>> fetchCars() {

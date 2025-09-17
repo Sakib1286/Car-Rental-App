@@ -35,7 +35,10 @@ dependencies:
   flutter_map: ^8.2.1
   latlong2: ^0.9.1
   bloc: ^9.0.0
-  flutter_bloc: ^9.1.1encies:
+  flutter_bloc: ^9.1.1
+  get_it: ^8.2.0
+
+
   flutter_test:
     sdk: flutter
 
